@@ -67,28 +67,17 @@ def normalize(temp: list, span: int):
     # Sort all points by Y
     for item in temp:
         item.sort(key=lambda x: x[1])
-        # Sort all Y
-        temp.sort(key=lambda x: x[0][1])
+    # Sort all Y
+    temp.sort(key=lambda x: x[0][1])
 
     temp = normalize_y1(temp, span)
     temp = normalize_y2(temp, span)
 
     for item in temp:
         item.sort(key=lambda x: x[0])
+
     temp.sort()
     temp = normalize_x1(temp, span)
     temp = normalize_x2(temp, span)
 
     return temp
-
-
-temp = [[[2071, 649], [2214, 651], [2069, 814], [2212, 816]],
-        [[1903, 649], [2048, 652], [1901, 814], [2046, 816]],
-        [[1744, 650], [1876, 651], [1743, 815], [1874, 816]],
-        [[1716, 690], [1563, 692], [1717, 814], [1565, 816]],
-        [[1716, 695], [1563, 692], [1717, 814], [1565, 816]]
-        ]
-
-result = normalize(temp, 5)
-for item in result:
-    print(item)
