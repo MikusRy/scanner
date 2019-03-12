@@ -1,4 +1,4 @@
-def normalize_x1(temp: list, span: int):
+def normalize_x(temp: list, span: int):
     master_position = 0
     compared_position = 0
 
@@ -11,10 +11,7 @@ def normalize_x1(temp: list, span: int):
             master_position = compared_position
             temp[compared_position][0][0] = temp[compared_position][1][0]
             compared_position += 1
-    return temp
 
-
-def normalize_x2(temp: list, span: int):
     master_position = 0
     compared_position = 0
 
@@ -27,10 +24,11 @@ def normalize_x2(temp: list, span: int):
             master_position = compared_position
             temp[compared_position][2][0] = temp[compared_position][3][0]
             compared_position += 1
+
     return temp
 
 
-def normalize_y1(temp: list, span: int):
+def normalize_y(temp: list, span: int):
     master_position = 0
     compared_position = 0
 
@@ -43,10 +41,7 @@ def normalize_y1(temp: list, span: int):
             master_position = compared_position
             temp[compared_position][0][1] = temp[compared_position][1][1]
             compared_position += 1
-    return temp
 
-
-def normalize_y2(temp: list, span: int):
     master_position = 0
     compared_position = 0
 
@@ -59,6 +54,7 @@ def normalize_y2(temp: list, span: int):
             master_position = compared_position
             temp[compared_position][2][1] = temp[compared_position][3][1]
             compared_position += 1
+
     return temp
 
 
@@ -70,14 +66,12 @@ def normalize(temp: list, span: int):
     # Sort all Y
     temp.sort(key=lambda x: x[0][1])
 
-    temp = normalize_y1(temp, span)
-    temp = normalize_y2(temp, span)
+    temp = normalize_y(temp, span)
 
     for item in temp:
         item.sort(key=lambda x: x[0])
 
     temp.sort()
-    temp = normalize_x1(temp, span)
-    temp = normalize_x2(temp, span)
+    temp = normalize_x(temp, span)
 
     return temp
