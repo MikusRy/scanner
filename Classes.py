@@ -1,11 +1,20 @@
 class Point:
     def __init__(self, x: int, y: int):
+        """
+
+        :param x:
+        :param y:
+        """
         self.x = x
         self.y = y
 
 
 class Rectangle:
     def __init__(self, points: list):
+        """
+
+        :param points:
+        """
         self.width = 0
         self.height = 0
 
@@ -18,6 +27,11 @@ class Rectangle:
         self.measure()
 
     def assign(self, points: list):
+        """
+
+        :param points:
+        :return:
+        """
         temp = []
         for item in points:
             temp.append(Point(item[0], item[1]))
@@ -37,16 +51,30 @@ class Rectangle:
             self.C = temp[2]
 
     def measure(self):
+        """
+
+        :return:
+        """
         self.width = self.B.x - self.A.x
         self.height = self.D.y - self.A.y
 
-    def contains(self, point: Point):
-        # TODO: Check whether rectangle contains given point
-        pass
+    def contains(self, point: Point) -> bool:
+        """
+
+        :param point:
+        :return:
+        """
+        if self.A.x <= point.x <= self.B.x and self.A.y <= point.y <= self.D.y:
+            return True
+        else:
+            return False
 
 
 class Answer:
     def __init__(self):
+        """
+
+        """
         self.A = False
         self.B = False
         self.C = False

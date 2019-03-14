@@ -3,29 +3,29 @@ from export_data import readImage
 import numpy
 from normalization import normalize
 
-# Image read
-img = cv.imread("photos/test.jpg", cv.IMREAD_GRAYSCALE)
-img = cv.medianBlur(img, 5)
 
-result, temp, contours, answers = readImage(img)
+if __name__ == "__main__":
+    # Image read
+    img = cv.imread("photos/test.jpg", cv.IMREAD_GRAYSCALE)
+    img = cv.medianBlur(img, 5)
 
-# Normalize answers
-answers = normalize(answers, 60)
+    result, temp, contours, answers = readImage(img)
 
-# Sort all by lines
+    # Normalize answers
+    answers = normalize(answers, 60)
 
-for item in answers:
-    item.sort(key=lambda x: x[1])
-answers.sort(key=lambda x: x[0][1])
+    # Sort all by lines
 
-# Convert To Rectangles
-# TODO: Convert to Rectangles
+    for item in answers:
+        item.sort(key=lambda x: x[1])
+    answers.sort(key=lambda x: x[0][1])
 
-
-for item in answers:
-    print(item)
-
-cv.imwrite("results/result.jpg", result)
-cv.imwrite("results/result_tmp.jpg", temp)
+    # Convert To Rectangles
+    # TODO: Convert to Rectangles
 
 
+    for item in answers:
+        print(item)
+
+    cv.imwrite("results/result.jpg", result)
+    cv.imwrite("results/result_tmp.jpg", temp)
