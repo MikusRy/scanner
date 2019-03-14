@@ -14,11 +14,6 @@ def getREKT(approx):
     return answer_table
 
 
-def sortREKT(answers):
-    result = []
-    return result
-
-
 def readImage(img):
     # Import image shape data
     height, width = img.shape
