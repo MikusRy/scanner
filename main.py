@@ -6,7 +6,7 @@ from normalization import normalize
 
 if __name__ == "__main__":
     # Image read
-    img = cv.imread("photos/test.jpg", cv.IMREAD_GRAYSCALE)
+    img = cv.imread("photos/final_7.jpg", cv.IMREAD_GRAYSCALE)
     img = cv.medianBlur(img, 5)
 
     result, temp, contours, answers = readImage(img)
@@ -22,7 +22,6 @@ if __name__ == "__main__":
 
     # Convert To Rectangles
     # TODO: Convert to Rectangles
-
 
     for item in answers:
         print(item)

@@ -28,9 +28,9 @@ def readImage(img):
 
     answers = []
     for cnt in contours:
-        approx = cv.approxPolyDP(cnt, 0.012 * cv.arcLength(cnt, True), True)
+        approx = cv.approxPolyDP(cnt, 0.047 * cv.arcLength(cnt, True), True)
         if len(approx) == 4:
-            if 600 < approx.ravel()[1] < 4280:
+            if 100 < approx.ravel()[1] < 4280:
                 cv.drawContours(threshold, [approx], -1, (0, 0, 255), 3)
 
                 answers.append(getREKT(approx))

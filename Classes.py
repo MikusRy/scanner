@@ -71,7 +71,9 @@ class Rectangle:
 
 
 class Answer:
-    def __init__(self):
+    def __init__(self, line: list):
+
+        self.Line = line
 
         self.A = False
         self.B = False
