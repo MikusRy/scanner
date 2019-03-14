@@ -4,7 +4,7 @@ import numpy
 from normalization import normalize
 
 # Image read
-img = cv.imread("photos/kwadracik.jpg", cv.IMREAD_GRAYSCALE)
+img = cv.imread("photos/test.jpg", cv.IMREAD_GRAYSCALE)
 img = cv.medianBlur(img, 5)
 
 result, temp, contours, answers = readImage(img)
@@ -19,6 +19,8 @@ for item in answers:
 answers.sort(key=lambda x: x[0][1])
 
 # Convert To Rectangles
+# TODO: Convert to Rectangles
+
 
 for item in answers:
     print(item)

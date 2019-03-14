@@ -6,12 +6,16 @@ class Point:
 
 class Rectangle:
     def __init__(self, points: list):
+        self.width = 0
+        self.height = 0
+
         self.A = None
         self.B = None
         self.C = None
         self.D = None
 
         self.assign(points)
+        self.measure()
 
     def assign(self, points: list):
         temp = []
@@ -31,6 +35,14 @@ class Rectangle:
         else:
             self.B = temp[3]
             self.C = temp[2]
+
+    def measure(self):
+        self.width = self.B.x - self.A.x
+        self.height = self.D.y - self.A.y
+
+    def contains(self, point: Point):
+        # TODO: Check whether rectangle contains given point
+        pass
 
 
 class Answer:

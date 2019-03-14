@@ -68,10 +68,12 @@ def normalize(temp: list, span: int):
 
     temp = normalize_y(temp, span)
 
+    # Sort all points by X
     for item in temp:
         item.sort(key=lambda x: x[0])
-
+    # Sort all X
     temp.sort()
+
     temp = normalize_x(temp, span)
 
     return temp
