@@ -62,7 +62,7 @@ class Rectangle:
         """
 
         :param point:
-        :return:
+        :return: Boolean determining whether rectangle contains given point
         """
         if self.A.x <= point.x <= self.B.x and self.A.y <= point.y <= self.D.y:
             return True
@@ -72,9 +72,7 @@ class Rectangle:
 
 class Answer:
     def __init__(self):
-        """
 
-        """
         self.A = False
         self.B = False
         self.C = False
