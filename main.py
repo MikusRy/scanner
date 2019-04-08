@@ -6,10 +6,10 @@ from normalization import normalize
 
 if __name__ == "__main__":
     # Image read
-    img = cv.imread("photos/final_7.jpg", cv.IMREAD_GRAYSCALE)
+    img = cv.imread("photos/foto.jpg", cv.IMREAD_GRAYSCALE)
     img = cv.medianBlur(img, 5)
 
-    result, temp, contours, answers = readImage(img)
+    result, temp, contours, answers, size = readImage(img)
 
     # Normalize answers
     answers = normalize(answers, 60)
