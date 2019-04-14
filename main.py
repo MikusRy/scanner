@@ -12,7 +12,8 @@ if __name__ == "__main__":
     # Image read
 
     files = [os.path.splitext(os.path.basename(f))[0] for f in glob.glob("./photos/*.jpg", recursive=True)]
-
+    if not os.path.exists('./results/'):
+        os.makedirs('./results')
     for file in files:
         img = cv.imread("photos/{0}.jpg".format(file), cv.IMREAD_GRAYSCALE)
         img = cv.medianBlur(img, 5)
