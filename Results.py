@@ -114,6 +114,3 @@ def evaluate(data: dict, handicap: int):
                 results["q" + str(i)]['D'] = not contains(item, [current_x + (gap * 3), y])
 
     return results
-
-
-
