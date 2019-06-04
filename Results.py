@@ -29,8 +29,8 @@ def find(data: list, size: dict):
 
 
 def group(data: list, span: int = 15):
-    result = {}
 
+    result = {}
     question = 0
     y_temp = 0
     temp = []

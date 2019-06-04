@@ -1,5 +1,4 @@
 import cv2 as cv
-import numpy
 
 
 def getREKT(approx):
@@ -14,8 +13,9 @@ def getREKT(approx):
     return answer_table
 
 
-def readImage(img):
+def readImage(file):
     # Import image shape data
+    img = cv.medianBlur(cv.imread("photos/{0}.jpg".format(file), cv.IMREAD_GRAYSCALE), 5)
     height, width = img.shape
 
     size = {'height': str(height),
@@ -23,11 +23,10 @@ def readImage(img):
             }
     print("height: " + size['height'] + "; Width: " + size['width'] + ";")
 
-    # Image to greyscale convert, contours detection
+    # Image to greyscale convert, threshold and contours detection
     threshold = cv.adaptiveThreshold(img, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 255, 33)
     temp = threshold
     contours, _ = cv.findContours(threshold, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
-
     # Image to RGB convert, for colorful contours draw
     threshold = cv.cvtColor(threshold, cv.COLOR_GRAY2RGB)
 
