@@ -11,6 +11,8 @@ from export_data import readImage
 if __name__ == "__main__":
     # Image read
     files = [os.path.splitext(os.path.basename(f))[0] for f in glob.glob("./photos/*.jpg", recursive=True)]
+    if not os.path.exists('./results/'):
+        os.makedirs('./results')
     for file in files:
         # Read the image
         result, temp, contours, answers, size = readImage(file)
@@ -24,7 +26,5 @@ if __name__ == "__main__":
         with open('results/{0}.json'.format(file), 'w') as outfile:
             json.dump(answers, cls=NumpyEncoder, indent=4, fp=outfile)
 
-        if not os.path.exists('./results'):
-            os.makedirs('./results')
         cv.imwrite("results/{0}.jpg".format(file), result)
         cv.imwrite("results/{0}_tmp.jpg".format(file), temp)
