@@ -4,13 +4,13 @@ import os
 
 import cv2 as cv
 
-from NumpyEncoder import NumpyEncoder
-from Results import find, group, evaluate
-from export_data import readImage
+from app.NumpyEncoder import NumpyEncoder
+from app.Results import find, group, evaluate
+from app.export_data import readImage
 
 if __name__ == "__main__":
     # Image read
-    files = [os.path.splitext(os.path.basename(f))[0] for f in glob.glob("./photos/*.jpg", recursive=True)]
+    files = [os.path.splitext(os.path.basename(f))[0] for f in glob.glob("./photos/*.jpg")]
     if not os.path.exists('./results/'):
         os.makedirs('./results')
     for file in files:
