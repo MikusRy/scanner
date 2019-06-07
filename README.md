@@ -1,6 +1,6 @@
 # OpenCV Card Scanner
 
-###Description:
+### Description:
 
 Simple project detecting answers selected on specific Exam Cards based on Photo/Scan.
 Script was manually tested on examples available in `./photos/` catalogue with 100% efficiency.
@@ -21,7 +21,7 @@ You will find there 3 files:
 * Photo after processing with detected objects framed using red colour.
 * JSON file with exported answers.
 
-###How it works:
+### How it works:
 Script uses openCV to open, process and detect squares on `.jpg` files stored in `./photos/` catalogue.
 After object detection, structure detection and denoising part kicks in. 
 
